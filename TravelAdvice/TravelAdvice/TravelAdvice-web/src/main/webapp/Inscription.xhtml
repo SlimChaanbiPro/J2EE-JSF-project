@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" 
+      xmlns:p="http://primefaces.org/ui">
+      
+
+<h:head></h:head> 
+<body > 
+ 
+
+
+    <h:panelGrid columns="2" cellpadding="5">
+   <p:outputLabel value="Nom" />
+ <p:inputText value="#{userbean.u.nom}" />
+                   
+        <p:outputLabel value="Prenom"  />
+  <p:inputText value="#{userbean.u.prenom}" />
+        <p:outputLabel value="email"  />
+  <p:inputText value="#{userbean.u.email}" />
+        <p:outputLabel value="adresse"  />
+  <p:inputText value="#{userbean.u.adress}" />
+        <p:outputLabel value="login"  />
+  <p:inputText value="#{userbean.u.login}" />
+        <p:outputLabel value="password" />
+  <p:inputText  value="#{userbean.u.password}" />
+       
+ 
+                    
+    </h:panelGrid>
+ 
+    <p:commandButton value="s'inscrire"  icon="ui-icon-check"  action="#{userbean.local.create(userbean.u)}" />
+</body> 
+</html>

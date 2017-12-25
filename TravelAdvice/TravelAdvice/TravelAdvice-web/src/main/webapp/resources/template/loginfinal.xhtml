@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"> 
+
+<h:head>
+    <title>Traveler - Login/Register on Traveler</title>
+
+
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <meta name="keywords" content="Template, html, premium, themeforest" />
+    <meta name="description" content="Traveler - Premium template for travel companies"/>
+    <meta name="author" content="Tsoy"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <!-- GOOGLE FONTS -->
+   <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'/> --> 
+    <!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600' rel='stylesheet' type='text/css'/> -->
+    <!-- /GOOGLE FONTS -->
+    <h:outputStylesheet library="css" name="bootstrap.css"> </h:outputStylesheet>
+    <h:outputStylesheet library="css" name="font-awesome.css"></h:outputStylesheet>
+ 
+    <h:outputStylesheet library="css" name="icomoon.css"></h:outputStylesheet>
+
+     <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+   
+     <h:outputStylesheet library="css" name="mystyles.css"></h:outputStylesheet>
+    
+     <h:outputScript library="js" name="modernizr.js"></h:outputScript>
+
+     
+<h:outputStylesheet library="css" name="switcher.css"></h:outputStylesheet>
+    <h:outputStylesheet library="css" name="bright-turquoise.css"></h:outputStylesheet>
+   
+    <h:outputStylesheet library="css" name="turkish-rose.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="salem.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="hippie-blue.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="mandy.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="green-smoke.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="horizon.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="cerise.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="brick-red.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="de-york.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="shamrock.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="studio.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="leather.css"></h:outputStylesheet>
+    
+    <h:outputStylesheet library="css" name="denim.css"></h:outputStylesheet>
+   
+    <h:outputStylesheet library="css" name="scarlet.css"></h:outputStylesheet>
+    
+ 
+</h:head>
+
+<h:body>
+
+    <!-- FACEBOOK WIDGET -->
+    <div id="fb-root"></div>
+ 
+    <!-- /FACEBOOK WIDGET -->
+    <div class="global-wrap">
+        <div class="demo_changer" id="demo_changer">
+            <div class="demo-icon fa fa-sliders"></div>
+            <div class="form_holder">
+                <div class="line"></div>
+                <p>Color Scheme</p>
+                <div class="predefined_styles" id="styleswitch_area">
+                    <a class="styleswitch" href="login-register-normalc392.html?default=true" style="background:#ED8323;"></a>
+                    <a class="styleswitch" href="#" data-src="bright-turquoise" style="background:#0EBCF2;"></a>
+                    <a class="styleswitch" href="#" data-src="turkish-rose" style="background:#B66672;"></a>
+                    <a class="styleswitch" href="#" data-src="salem" style="background:#12A641;"></a>
+                    <a class="styleswitch" href="#" data-src="hippie-blue" style="background:#4F96B6;"></a>
+                    <a class="styleswitch" href="#" data-src="mandy" style="background:#E45E66;"></a>
+                    <a class="styleswitch" href="#" data-src="green-smoke" style="background:#96AA66;"></a>
+                    <a class="styleswitch" href="#" data-src="horizon" style="background:#5B84AA;"></a>
+                    <a class="styleswitch" href="#" data-src="cerise" style="background:#CA2AC6;"></a>
+                    <a class="styleswitch" href="#" data-src="brick-red" style="background:#cf315a;"></a>
+                    <a class="styleswitch" href="#" data-src="de-york" style="background:#74C683;"></a>
+                    <a class="styleswitch" href="#" data-src="shamrock" style="background:#30BBB1;"></a>
+                    <a class="styleswitch" href="#" data-src="studio" style="background:#7646B8;"></a>
+                    <a class="styleswitch" href="#" data-src="leather" style="background:#966650;"></a>
+                    <a class="styleswitch" href="#" data-src="denim" style="background:#1A5AE4;"></a>
+                    <a class="styleswitch" href="#" data-src="scarlet" style="background:#FF1D13;"></a>
+                    
+                </div>
+                <div class="line"></div>
+                <p>Layout</p>
+                <div class="predefined_styles"><a class="btn btn-sm" href="#" id="btn-wide">Wide</a><a class="btn btn-sm" href="#" id="btn-boxed">Boxed</a>
+                </div>
+                <div class="line"></div>
+                <p>Background Patterns</p>
+                <div class="predefined_styles" id="patternswitch_area">
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/binding_light.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/binding_dark.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/dark_fish_skin.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/dimension.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/escheresque_ste.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/food.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/giftly.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/grey_wash_wall.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/ps_neutral.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/pw_maze_black.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/pw_pattern.png);"></a>
+                    <a class="patternswitch" href="#" style="background-image: url(img/patterns/simple_dashed.png);"></a>
+                   <h:outputLink value="url(img/patterns/simple_dashed.png);" ></h:outputLink>
+                </div>
+                <div class="line"></div>
+                <p>Background Images</p>
+                <div class="predefined_styles" id="bgimageswitch_area">
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/bike.jpg);" data-src="img/backgrounds/bike.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/flowers.jpg);" data-src="img/backgrounds/flowers.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/wood.jpg);" data-src="img/backgrounds/wood.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/taxi.jpg);" data-src="img/backgrounds/taxi.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/phone.jpg);" data-src="img/backgrounds/phone.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/road.jpg);" data-src="img/backgrounds/road.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/keyboard.jpg);" data-src="img/backgrounds/keyboard.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/beach.jpg);" data-src="img/backgrounds/beach.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/street.jpg);" data-src="img/backgrounds/street.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/nature.jpg);" data-src="img/backgrounds/nature.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/bridge.jpg);" data-src="img/backgrounds/bridge.jpg"></a>
+                    <a class="bgimageswitch" href="#" style="background-image: url(img/switcher/cameras.jpg);" data-src="img/backgrounds/cameras.jpg"></a>
+                    <h:outputLink value="img/backgrounds/cameras.jpg"></h:outputLink>
+                </div>
+                <div class="line"></div>
+            </div>
+        </div>
+        
+
+        <div class="container">
+            <h1 class="page-title">Login/Register on Traveler</h1>
+        </div>
+
+        <div class="gap"></div>
+
+
+        <div class="container">
+            <div class="row" data-gutter="60">
+                <div class="col-md-4">
+                    <h3>Welcome to Traveler</h3>
+                    <p>Ultricies vestibulum egestas ad cras mollis nam dictumst netus leo facilisis justo maecenas molestie ipsum felis mus cubilia hendrerit vestibulum accumsan consectetur convallis vitae nec sapien diam justo lobortis aenean</p>
+                    <p>Lobortis tristique interdum curae luctus mattis nisl aenean diam suscipit</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Login</h3>
+                    <h:form>
+                        <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label>Username or email</label>
+                            <h:inputText  class="form-control" pt:placeholder="e.g. johndoe@gmail.com" type="text" value="#{logBean.login}" />
+                        </div>
+                        <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon input-icon-show"></i>
+                            <label>Password</label>
+                            <h:inputText value="#{logBean.pwd}" class="form-control" type="password" pt:placeholder="my secret password" />
+                        </div>
+                        <h:commandButton action="#{logBean.doLogin()}" class="btn btn-primary" type="submit" value="Sign in"  />
+                    </h:form>
+                </div>
+                <div class="col-md-4">
+                    <h3>New To Traveler?</h3>
+                    <h:form>
+                        <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label> nom</label>
+                            <h:inputText value="#{userbean.u.nom}"  class="form-control" pt:placeholder="e.g. John Doe" type="text" />
+                        </div>
+                        <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label> Prenom</label>
+                            <h:inputText value="#{userbean.u.prenom}"  class="form-control" pt:placeholder="e.g. John Doe" type="text" />
+                        </div>
+                        
+                        <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon input-icon-show"></i>
+                            <label>Emai</label>
+                            <h:inputText value="#{userbean.u.email}" class="form-control" pt:placeholder="e.g. johndoe@gmail.com" type="text" />
+                        </div>
+                         <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label> Adtresse</label>
+                            <h:inputText value="#{userbean.u.adress}"  class="form-control" pt:placeholder="e.g. John Doe" type="text" />
+                        </div>
+                         <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label> Login</label>
+                            <h:inputText value="#{userbean.u.login}"  class="form-control" pt:placeholder="e.g. John Doe" type="text" />
+                        </div>
+                       <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon input-icon-show"></i>
+                            <label> Password</label>
+                            <h:inputText value="#{userbean.u.password}"  class="form-control" pt:placeholder="e.g. John Doe" type="text" />
+                            
+                        </div>
+                     
+                        
+                        <h:commandButton action="#{userbean.ajouter()}" class="btn btn-primary" type="submit" value="Sign up for Traveler" />
+                    </h:form>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="gap"></div>
+        
+<h:outputScript library="js" name="jquery.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="bootstrap.js"></h:outputScript>
+      
+        <h:outputScript library="js" name="slimmenu.js"></h:outputScript>
+    
+        <h:outputScript library="js" name="bootstrap-datepicker.js"></h:outputScript>
+      
+        <h:outputScript library="js" name="bootstrap-timepicker.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="nicescroll.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="dropit.js"></h:outputScript>
+      
+        <h:outputScript library="js" name="ionrangeslider.js"></h:outputScript>
+        
+        <h:outputScript library="js" name="icheck.js"></h:outputScript>
+        
+       
+        <h:outputScript library="js" name="fotorama.js"></h:outputScript>
+       
+     
+        <h:outputScript library="js" name="typeahead.js"></h:outputScript>
+        
+        <h:outputScript library="js" name="card-payment.js"></h:outputScript>
+   
+        <h:outputScript library="js" name="magnific.js"></h:outputScript>
+        
+        <h:outputScript library="js" name="owl-carousel.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="fitvids.js"></h:outputScript>
+        
+        <h:outputScript library="js" name="tweet.js"></h:outputScript>
+   
+        <h:outputScript library="js" name="countdown.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="gridrotator.js"></h:outputScript>
+      
+        <h:outputScript library="js" name="custom.js"></h:outputScript>
+       
+        <h:outputScript library="js" name="switcher.js"></h:outputScript>
+        
+    </div>
+</h:body>
+ 
+</html>

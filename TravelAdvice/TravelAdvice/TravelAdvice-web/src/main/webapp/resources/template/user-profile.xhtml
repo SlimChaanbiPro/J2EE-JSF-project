@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<!-- GOOGLE FONTS -->
+<link
+	href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700'
+	rel='stylesheet' type='text/css' />
+<link
+	href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600'
+	rel='stylesheet' type='text/css' />
+<!-- /GOOGLE FONTS -->
+
+<h:body>
+
+
+
+	<ui:composition template="/template.xhtml">
+		<ui:define name="contenu">
+			<div id="fb-root"></div>
+			<script
+				src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl6iB8NUFtF-OEh33YSFurJrd3pmO8AGc"></script>
+
+
+			<div class="global-wrap">
+				<div class="demo_changer" id="demo_changer">
+					<div class="demo-icon fa fa-sliders"></div>
+					<div class="form_holder">
+						<div class="line"></div>
+						<p>Color Scheme</p>
+						<div class="predefined_styles" id="styleswitch_area">
+							<a class="styleswitch" href="user-profilec392.html?default=true"
+								style="background: #ED8323;"></a> <a class="styleswitch"
+								href="#" data-src="bright-turquoise"
+								style="background: #0EBCF2;"></a> <a class="styleswitch"
+								href="#" data-src="turkish-rose" style="background: #B66672;"></a>
+							<a class="styleswitch" href="#" data-src="salem"
+								style="background: #12A641;"></a> <a class="styleswitch"
+								href="#" data-src="hippie-blue" style="background: #4F96B6;"></a>
+							<a class="styleswitch" href="#" data-src="mandy"
+								style="background: #E45E66;"></a> <a class="styleswitch"
+								href="#" data-src="green-smoke" style="background: #96AA66;"></a>
+							<a class="styleswitch" href="#" data-src="horizon"
+								style="background: #5B84AA;"></a> <a class="styleswitch"
+								href="#" data-src="cerise" style="background: #CA2AC6;"></a> <a
+								class="styleswitch" href="#" data-src="brick-red"
+								style="background: #cf315a;"></a> <a class="styleswitch"
+								href="#" data-src="de-york" style="background: #74C683;"></a> <a
+								class="styleswitch" href="#" data-src="shamrock"
+								style="background: #30BBB1;"></a> <a class="styleswitch"
+								href="#" data-src="studio" style="background: #7646B8;"></a> <a
+								class="styleswitch" href="#" data-src="leather"
+								style="background: #966650;"></a> <a class="styleswitch"
+								href="#" data-src="denim" style="background: #1A5AE4;"></a> <a
+								class="styleswitch" href="#" data-src="scarlet"
+								style="background: #FF1D13;"></a>
+						</div>
+
+						<div class="line"></div>
+						<p>Layout</p>
+						<div class="predefined_styles">
+							<a class="btn btn-sm" href="#" id="btn-wide">Wide</a><a
+								class="btn btn-sm" href="#" id="btn-boxed">Boxed</a>
+						</div>
+						<div class="line"></div>
+						<p>Background Patterns</p>
+						<div class="predefined_styles" id="patternswitch_area">
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/binding_light.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/binding_dark.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/dark_fish_skin.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/dimension.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/escheresque_ste.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/food.png);"></a> <a
+								class="patternswitch" href="#"
+								style="background-image: url(img/patterns/giftly.png);"></a> <a
+								class="patternswitch" href="#"
+								style="background-image: url(img/patterns/grey_wash_wall.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/ps_neutral.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/pw_maze_black.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/pw_pattern.png);"></a>
+							<a class="patternswitch" href="#"
+								style="background-image: url(img/patterns/simple_dashed.png);"></a>
+						</div>
+						<div class="line"></div>
+						<p>Background Images</p>
+						<div class="predefined_styles" id="bgimageswitch_area">
+							<a class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/bike.jpg);"
+								data-src="img/backgrounds/bike.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/flowers.jpg);"
+								data-src="img/backgrounds/flowers.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/wood.jpg);"
+								data-src="img/backgrounds/wood.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/taxi.jpg);"
+								data-src="img/backgrounds/taxi.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/phone.jpg);"
+								data-src="img/backgrounds/phone.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/road.jpg);"
+								data-src="img/backgrounds/road.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/keyboard.jpg);"
+								data-src="img/backgrounds/keyboard.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/beach.jpg);"
+								data-src="img/backgrounds/beach.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/street.jpg);"
+								data-src="img/backgrounds/street.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/nature.jpg);"
+								data-src="img/backgrounds/nature.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/bridge.jpg);"
+								data-src="img/backgrounds/bridge.jpg"></a> <a
+								class="bgimageswitch" href="#"
+								style="background-image: url(img/switcher/cameras.jpg);"
+								data-src="img/backgrounds/cameras.jpg"></a>
+						</div>
+						<div class="line"></div>
+					</div>
+				</div>
+
+
+				<div class="container">
+					<h1 class="page-title">Travel Profile</h1>
+
+				</div>
+
+
+
+
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<aside class="user-profile-sidebar">
+							<div class="user-profile-avatar text-center">
+
+								<h:graphicImage value="/resources/img/amaze_300x300.jpg" />
+								<li><h:outputLabel value="#{logBean.user2.login}" /></li>
+							</div>
+							<ul class="list user-profile-nav">
+
+
+								<li><a href="user-profile.jsf"><i class="fa fa-user"></i>Overview</a>
+								</li>
+								<li><a href="user-profile-settings.jsf"><i
+										class="fa fa-cog"></i>Settings</a></li>
+								<li><a href="user-profile-photos.jsf"><i
+										class="fa fa-camera"></i>My Travel Photos</a></li>
+								<li><a href="user-profile-booking-history.jsf"><i
+										class="fa fa-clock-o"></i>Booking History</a></li>
+								<li><a href="user-profile-cards.jsf"><i
+										class="fa fa-credit-card"></i>Credit/Debit Cards</a></li>
+						<li><a href="Amis.jsf"><i class="fa fa-heart-o"></i>ListUser</a>
+                            
+                            </li>
+                            <li><a href="Amis2.jsf"><i class="fa fa-heart-o"></i>Mes invitation</a>
+                            
+                            </li>
+                            <li ><a href="Amis3.jsf"><i class="fa fa-heart-o" ></i>mes Amis</a>
+                            
+                            </li>
+                            <li><a href="template/messsage.jsf"><i class="fa fa-heart-o"></i>Mes Message</a></li>
+							</ul>
+							</aside>
+						</div>
+						<div class="col-md-9">
+							<h4>Total Traveled</h4>
+							<ul class="list list-inline user-profile-statictics mb30">
+								<li><i class="fa fa-dashboard user-profile-statictics-icon"></i>
+									<h5>12540</h5>
+									<p>Miles</p></li>
+								<li><i class="fa fa-globe user-profile-statictics-icon"></i>
+									<h5>2%</h5>
+									<p>World</p></li>
+								<li><i
+									class="fa fa-building-o user-profile-statictics-icon"></i>
+									<h5>15</h5>
+									<p>Cityes</p></li>
+								<li><i class="fa fa-flag-o user-profile-statictics-icon"></i>
+									<h5>3</h5>
+									<p>Countries</p></li>
+								<li><i class="fa fa-plane user-profile-statictics-icon"></i>
+									<h5>20</h5>
+									<p>Trips</p></li>
+							</ul>
+							<div id="map" style="width: 100%; height: 400px;"></div>
+							<script>
+     //boucle for
+   //ListUser> listOfUsers = localBean.getUsers();
+   //for(User user2 : listOfUsers){
+							
+							//Recuperer la lat et lng de l'adresse de l'utilsateur
+							var theUrl = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyAl6iB8NUFtF-OEh33YSFurJrd3pmO8AGc"
+								+"&amp;address=#{logBean.user2.adress}";
+							var xmlHttp = new XMLHttpRequest();
+						    xmlHttp.open( "GET", theUrl, false ); 
+						    xmlHttp.send( null );
+						    //recuperation de la reponse du service rest de google sous forma JSON
+						    var res = xmlHttp.responseText;
+						    // Attend la response de google
+							setTimeout(function(){ 
+								alert(res);
+								//conversion du format JSON on objet javascript
+		res = JSON.parse(res);
+		//creation de la LatLng varialb epour utilisation plutard :p
+							var myLatLng = {lat: res.results[0].geometry.location.lat, lng: res.results[0].geometry.location.lng};
+//script de creation de la map
+					          var map = new google.maps.Map(document.getElementById('map'), {
+					              center: myLatLng,
+					              scrollwheel: false,
+					              zoom: 4
+					            });
+					            //script d'ajout du marker
+					          var marker = new google.maps.Marker({
+					              
+					              map: map,
+					              position: myLatLng,
+					              title: 'Hello World!'
+					            });
+					            // script deuxieme maqueur
+					          var myLatLng2 = {lat: 34,lng: 10};
+var marker2 = new google.maps.Marker({
+					              
+					              map: map,
+					              position: myLatLng2,
+					              title: 'second marker'
+					            });
+
+							}, 2000);
+          
+      </script>
+						</div>
+					</div>
+				</div>
+
+
+				<div class="gap"></div>
+
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+
+<!-- Mirrored from remtsoy.com/tf_templates/traveler/demo_v1_7/user-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Nov 2016 15:11:52 GMT -->
+</html>
+
+
+

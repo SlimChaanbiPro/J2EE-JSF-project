@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:p="http://primefaces.org/ui"> 
+
+
+
+<h:body>
+
+ <ui:composition template="/template.xhtml">
+<ui:define name="contenu">
+    
+
+        <div class="container">
+            <h1 class="page-title">Account Settings</h1>
+        </div>
+
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <aside class="user-profile-sidebar">
+                        <div class="user-profile-avatar text-center">
+                           
+                             <h:graphicImage value="/resources/img/amaze_300x300.jpg" />
+                            <li> <h:outputLabel value="#{logBean.user2.login}" /></li>
+                            <p>Member Since May 2012</p>
+                        </div>
+                        <ul class="list user-profile-nav">
+                            <li><a href="user-profile.jsf"><i class="fa fa-user"></i>Overview</a>
+                            </li>
+                            <li><a href="user-profile-settings.jsf"><i class="fa fa-cog"></i>Settings</a>
+                            </li>
+                            <li><a href="user-profile-photos.jsf"><i class="fa fa-camera"></i>My Travel Photos</a>
+                            </li>
+                            <li><a href="user-profile-booking-history.jsf"><i class="fa fa-clock-o"></i>Booking History</a>
+                            </li>
+                            <li><a href="user-profile-cards.jsf"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+                            </li>
+                            <li><a href="Amis.jsf"><i class="fa fa-heart-o"></i>ListUser</a>
+                            
+                            </li>
+                            <li><a href="Amis2.jsf"><i class="fa fa-heart-o"></i>Mes invitation</a>
+                            
+                            </li>
+                            <li><a href="Amis3.jsf"><i class="fa fa-heart-o"></i>mes Amis</a>
+                            
+                            </li>
+                            <li><a href="messsages.jsf"><i class="fa fa-heart-o"></i>Mes Message</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h:form action="#">
+                                <h4>Personal Infomation</h4>
+                                
+                                <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                                    <label> Nom</label>
+                                   	<h:inputText id="prenom" value="#{logBean.user2.nom}"
+				required="true" requiredMessage="Please insert your First Name"
+				styleClass="form-control" pt:placeholder="First Name" pt:autofocus="" />
+                                </div>
+                                <div class="form-group form-group-icon-left"><i class="fa fa-user input-icon"></i>
+                                    <label>Prenom</label>
+                                    <h:inputText  class="form-control"  value="#{logBean.user2.prenom}" type="text" />
+                                </div>
+                                <div class="form-group form-group-icon-left"><i class="fa fa-envelope input-icon"></i>
+                                    <label>E-mail</label>
+                                    <h:inputText  class="form-control" value="#{logBean.user2.email}" type="text" >
+                                    <f:validateRegex pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></f:validateRegex></h:inputText>
+                                </div>
+                                <div class="form-group form-group-icon-left"><i class="fa fa-phone input-icon"></i>
+                                    <label>Login</label>
+                                    <h:inputText  class="form-control" value="#{logBean.user2.login}" type="text" ></h:inputText>
+                                </div>
+                           
+                                <div class="form-group form-group-icon-left"><i class="fa fa-lock input-icon"></i>
+                                    <label>Password</label>
+                                  
+                                    <h:inputSecret class="form-control" id="passe" value="#{logBean.user2.password}" 
+                                     required="true"
+				
+				requiredMessage="im not looking and it should above 8 caracter"
+				styleClass="form-control" pt:placeholder="Password"
+				validatorMessage="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+				<f:validateRegex pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"></f:validateRegex>
+			</h:inputSecret>
+			<p:message for="passe" />
+
+			<h:inputSecret value="cpass" required="true" id="cpass"
+				requiredMessage="you just need to type it again"
+				styleClass="form-control" pt:placeholder="Confirm password" />
+			<p:message for="cpass" severity="warn" />
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <h:inputText  class="form-control" value="#{logBean.user2.adress}" type="text" ></h:inputText>
+                                </div>
+                               
+                               
+                                <input type="submit" class="btn btn-primary" value="#{userbean.local.updateUser(logBean.user2)}" />
+                            </h:form>
+                        </div>
+                        <div class="col-md-4 col-md-offset-1">
+                            
+                        
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        
+
+
+
+        <div class="gap"></div>
+    
+    </div>
+   
+    </ui:define>
+    </ui:composition>
+</h:body>
+
+
+<!-- Mirrored from remtsoy.com/tf_templates/traveler/demo_v1_7/user-profile-settings.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 08 Nov 2016 15:16:31 GMT -->
+</html>
+
+
+

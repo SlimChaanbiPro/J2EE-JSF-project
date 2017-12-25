@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+<f:metadata>
+	<f:event  listener="#{userbean.requestonhold(logBean.user2)}" type="preRenderView" />
+	</f:metadata>
+<h:body>
+
+<ui:composition template="/template.xhtml">
+		<ui:define name="contenu">
+
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <aside class="user-profile-sidebar">
+                        <div class="user-profile-avatar text-center">
+                           	<h:graphicImage value="/resources/img/amaze_300x300.jpg" />
+								<li><h:outputLabel value="#{logBean.user2.login}" /></li>
+                            
+                          
+                        </div>
+                        <ul class="list user-profile-nav">
+                            <li><a href="user-profile.html"><i class="fa fa-user"></i>Overview</a>
+                            </li>
+                            <li><a href="user-profile-settings.html"><i class="fa fa-cog"></i>Settings</a>
+                            </li>
+                            <li><a href="user-profile-photos.html"><i class="fa fa-camera"></i>My Travel Photos</a>
+                            </li>
+                            <li><a href="user-profile-booking-history.html"><i class="fa fa-clock-o"></i>Booking History</a>
+                            </li>
+                            <li><a href="user-profile-cards.html"><i class="fa fa-credit-card"></i>Credit/Debit Cards</a>
+                            </li>
+                          <li><a href="Amis.jsf"><i class="fa fa-heart-o"></i>ListUser</a>
+                            
+                            </li>
+                            <li><a href="Amis2.jsf"><i class="fa fa-heart-o"></i>Mes invitation</a>
+                            
+                            </li>
+                            <li><a href="Amis3.jsf"><i class="fa fa-heart-o"></i>mes Amis</a>
+                            
+                            </li>
+                            <li><a href="messsages.html"><i class="fa fa-heart-o"></i>Mes Message</a></li>
+                        </ul>
+                    </aside>
+                </div>
+                <div class="col-md-9">
+                
+                    <ul class="booking-list booking-list-wishlist">
+                   
+                    <ui:repeat value="#{userbean.friends2}" var="friend">
+                    
+                        <li><span class="booking-item-wishlist-title"><i class="fa fa-bolt"></i>  <span >mes invitation</span></span>
+                            <a class="fa fa-times booking-item-wishlist-remove" href="#" rel="tooltip" data-placement="top" title="remove from wishlist"></a>
+                            <a class="booking-item" href="#">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                         <h:graphicImage value="/resources/img/amaze_300x300.jpg" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        
+                                        <h5 class="booking-item-title">#{friend.user}</h5>
+                                        <p class="booking-item-address"><i class="fa fa-map-marker"></i>#{friend.user.nom}</p>
+                                        <p class="booking-item-description">#{friend.user.prenom}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                    	<span class="booking-item-price-from">average</span>
+                                    	<span class="booking-item-price">$143</span>
+                                    	<span>mr:#{logBean.user2.login}}</span>
+                                    	<h:form>
+                                    	<ul class="booking-item-features booking-item-features-sign clearfix">
+                                                <li>
+                                             	<h:commandButton action="#{userbean.acceptrequest(friend)}" value="Accepter l'invitation" class="btn btn-primary"></h:commandButton>
+                                                
+                                                </li>
+                                                <li >
+                                              <h:commandButton action="#{userbean.deletefriend(friend)}" value="refuser l'invitation" class="btn btn-primary" ></h:commandButton>
+                                                
+                                                </li>
+                                              
+                                            </ul>
+  										</h:form>                                  
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                       
+                           </ui:repeat>
+                           
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+       
+   </ui:define> 
+   </ui:composition> 
+</h:body>
+
+
+
+</html>
+
+
+

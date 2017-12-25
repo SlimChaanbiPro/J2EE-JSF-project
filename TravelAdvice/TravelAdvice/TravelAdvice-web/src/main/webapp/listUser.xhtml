@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+       
+	
+<h:head></h:head> 
+<body> 
+<h:form id="form">
+    <p:carousel value="#{userbean.users}" headerText="Responsive" var="user" itemStyle="text-align:center" responsive="true">
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            <f:facet name="header">
+                
+            </f:facet>
+ 
+            <h:outputText value="login:" />
+            <h:outputText value="#{user.login}" />
+ 
+            <h:outputText value="Nom" />
+            <h:outputText value="#{user.nom}" />
+ 
+            <h:outputText value="Prenom" />
+            <h:outputText value="#{user.prenom}"/>
+ 
+            <h:outputText value="Price" />
+            <h:outputText value="#{user.adress}" />
+        <p:commandButton value="With Icon" id="withIcon" actionListener="#{userbean.sendfriendrequest(user)}" icon="ui-icon-disk" />
+            
+        </p:panelGrid>
+ 
+        <f:facet name="footer">
+                In total there are #{userbean.nombre} Utilisateur.
+        </f:facet>
+    </p:carousel>
+    
+      <p:carousel value="#{userbean.friends}" headerText="Responsive" var="friend" itemStyle="text-align:center" responsive="true">
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            <f:facet name="header">
+                
+            </f:facet>
+ 
+            <h:outputText value="login:" />
+            <h:outputText value="#{friend.user2.login}" />
+ 
+            <h:outputText value="Nom" />
+            <h:outputText value="#{friend.user2.nom}" />
+ 
+            <h:outputText value="Prenom" />
+            <h:outputText value="#{friend.user2.prenom}"/>
+ 
+            <h:outputText value="Address" />
+            <h:outputText value="#{friend.user2.adress}" />
+    <p:commandButton value="With Icon" id="withIcon2" actionListener="#{userbean.deletefriend(friend)}" icon="ui-icon-disk" />
+        <p:commandButton value="With Icon5" id="withIcon5" onclick="PF('dlg3').show();" icon="ui-icon-disk" action ="#{userbean.confirmuser(friend.user2)}" />
+            
+        </p:panelGrid>
+ 
+        <f:facet name="footer">
+                In total there are #{userbean.nombre2} Utilisateur.
+        </f:facet>
+    </p:carousel>
+      <p:carousel value="#{userbean.friends2}" headerText="Responsive" var="friend" itemStyle="text-align:center" responsive="true">
+        <p:panelGrid columns="2" style="width:100%;margin:10px 0px" columnClasses="label,value" layout="grid" styleClass="ui-panelgrid-blank">
+            <f:facet name="header">
+                
+            </f:facet>
+ 
+            <h:outputText value="login:" />
+            <h:outputText value="#{friend.user2.login}" />
+ 
+            <h:outputText value="Nom" />
+            <h:outputText value="#{friend.user2.nom}" />
+ 
+            <h:outputText value="Prenom" />
+            <h:outputText value="#{friend.user2.prenom}"/>
+ 
+            <h:outputText value="Address" />
+            <h:outputText value="#{friend.user2.adress}" />
+        <p:commandButton value="With Icon3" id="withIcon3" actionListener="#{userbean.acceptrequest(friend)}" icon="ui-icon-disk" />
+        <p:commandButton value="With Icon4" id="withIcon4" actionListener="#{userbean.deletefriend(friend)}" icon="ui-icon-disk" />
+            
+        </p:panelGrid>
+ 
+        <f:facet name="footer">
+                In total there are #{userbean.nombre2} Utilisateur.
+        </f:facet>
+    </p:carousel>
+    
+    <p:dialog header="Effects" widgetVar="dlg3" showEffect="explode" hideEffect="bounce" height="100">
+    <h:outputText value="This dialog has nice effects." />
+    <h:inputText value="#{userbean.message}" />
+    <p:commandButton value="With Icon" id="withIcon2" actionListener="#{chatBean.SendMessage(userbean.us.id,userbean.message)}" icon="ui-icon-disk" />
+    
+</p:dialog>
+</h:form>
+</body> 
+</html>

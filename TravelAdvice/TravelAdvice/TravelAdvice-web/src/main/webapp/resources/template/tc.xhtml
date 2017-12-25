@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrought"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"> 
+
+<h:head>
+<title>Orbiter Team Chat</title>
+
+<!--CSS-->
+<style type="text/css">
+#chatPane {
+  border: inset 2px; 
+  height: 100px; 
+  width: 400px; 
+  overflow: auto; 
+  padding: 5px; 
+  margin-bottom: 5px
+}
+</style>
+
+<!--Load the Orbiter JavaScript library (non-minified version). Use during development.-->
+<script type="text/javascript" src="http://unionplatform.com/cdn/Orbiter_latest.js"></script>
+<!--Load the Orbiter JavaScript library (minified version). Use for production.-->
+<!--<script type="text/javascript" src="http://unionplatform.com/cdn/Orbiter_latest_min.js"></script>-->
+
+<!--Chat code-->
+<script type="text/javascript">
+//==============================================================================
+// VARIABLES
+//==============================================================================
+var orbiter;
+var chatRoom;
+var teams = ["red", "blue"];
+
+//==============================================================================
+// INITIALIZATION
+//==============================================================================
+function init () {
+  // Create the Orbiter instance, used to connect to and communicate with Union,
+  // then enable automatic reconnection (one attempt every 15 seconds)
+  orbiter = new net.user1.orbiter.Orbiter();
+  orbiter.getConnectionMonitor().setAutoReconnectFrequency(15000);
+  
+  // Increase log level to maximum
+  orbiter.getLog().setLevel(net.user1.logger.Logger.DEBUG);
+  
+  // If required JavaScript capabilities are missing, abort
+  if (!orbiter.getSystem().isJavaScriptCompatible()) {
+    displayChatMessage("Your browser is not supported.");
+    return;
+  }
+  
+  // Register for Orbiter's connection events
+  orbiter.addEventListener(net.user1.orbiter.OrbiterEvent.READY, readyListener, this);
+  orbiter.addEventListener(net.user1.orbiter.OrbiterEvent.CLOSE, closeListener, this);
+  
+  displayChatMessage("Connecting to Union...");
+
+  // Connect to Union Server
+  orbiter.connect("tryunion.com", 80);
+}
+
+//==============================================================================
+// ORBITER EVENT LISTENERS
+//==============================================================================
+// Triggered when the connection is ready
+function readyListener (e) {
+  displayChatMessage("Connected.");
+  displayChatMessage("Joining chat room...");
+  
+  // Create the chat room on the server
+  chatRoom = orbiter.getRoomManager().createRoom("chatRoom");
+  chatRoom.addEventListener(net.user1.orbiter.RoomEvent.JOIN, joinRoomListener);
+  chatRoom.addEventListener(net.user1.orbiter.RoomEvent.ADD_OCCUPANT, addOccupantListener);
+  chatRoom.addEventListener(net.user1.orbiter.RoomEvent.REMOVE_OCCUPANT, removeOccupantListener);  
+  
+  // Listen for chat messages
+  chatRoom.addMessageListener("CHAT_MESSAGE", chatMessageListener);
+  
+  // Join the chat room
+  chatRoom.join();
+}
+
+// Triggered when the connection is closed
+function closeListener (e) {
+  displayChatMessage("Orbiter connection closed.");
+}
+
+//==============================================================================
+// CHAT ROOM EVENT LISTENERS
+//==============================================================================
+// Triggered when the room is joined
+function joinRoomListener (e) {
+  // Join a random team
+  var team = teams[Math.floor(Math.random()*2)];
+  orbiter.self().setAttribute("team", team, "chatRoom");
+  
+  displayChatMessage("You joined the " + team + " team.");
+  displayChatMessage("Chat ready!");
+  displayChatMessage("Number of people now chatting: " + chatRoom.getNumOccupants());
+}
+
+// Triggered when another client joins the chat room
+function addOccupantListener (e) {
+  if (chatRoom.getSyncState() != net.user1.orbiter.SynchronizationState.SYNCHRONIZING) { 
+    displayChatMessage("User" + e.getClientID() + " joined the chat."
+                       + " People chatting: " + chatRoom.getNumOccupants());
+  }
+}
+  
+// Triggered when another client leaves the chat room
+function removeOccupantListener (e) {
+  displayChatMessage("User" + e.getClientID() + " left the chat.");
+}
+  
+//==============================================================================
+// CHAT SENDING AND RECEIVING
+//==============================================================================
+// Sends a chat message to everyone in the chat room
+function sendMessage () {
+  var outgoing = document.getElementById("outgoing");
+  var filter = new net.user1.orbiter.filters.AttributeFilter();
+  var comparison = new net.user1.orbiter.filters.AttributeComparison("chatRoom.team",
+                                           orbiter.self().getAttribute("team", "chatRoom"),
+                                           net.user1.orbiter.filters.CompareType.EQUAL);
+  filter.addComparison(comparison);
+  
+  if (outgoing.value.length > 0) {
+    displayChatMessage("Sending message to the " 
+                       + orbiter.self().getAttribute("team", "chatRoom") + "team"); 
+    chatRoom.sendMessage("CHAT_MESSAGE", "true", filter, outgoing.value, "true");
+    outgoing.value = "";
+    // Focus text field again after submission (required for IE8 only)
+    setTimeout(function () {outgoing.focus();}, 10);
+  }
+}
+
+// Triggered when a chat message is received
+function chatMessageListener (fromClient, message, isTeamChat) {
+  if (isTeamChat == "true") {
+    displayChatMessage("Team Member" + fromClient.getClientID() + ": " + message);
+  } else {
+    displayChatMessage("User" + fromClient.getClientID() + ": " + message);
+  }
+}
+
+// Displays a single chat message
+function displayChatMessage (message) {
+  // Make the new chat message element
+  var msg = document.createElement("span");
+  msg.appendChild(document.createTextNode(message));
+  msg.appendChild(document.createElement("br"));
+
+  // Append the new message to the chat
+  var chatPane = document.getElementById("chatPane");
+  chatPane.appendChild(msg);
+  
+  // Trim the chat to 500 messages
+  if (chatPane.childNodes.length > 500) {
+    chatPane.removeChild(chatPane.firstChild);
+  }
+  chatPane.scrollTop = chatPane.scrollHeight;
+}
+</script>
+</h:head>
+
+<h:body onload="init()">
+<!--Contains the incoming chat messages-->
+<div id="chatPane"></div>
+
+<!--The outgoing chat form-->
+<div>
+  <input type="text" id="outgoing" style="width:340px" onkeydown="if (event.keyCode == 13) sendMessage()"/>
+  <input type="submit" value="Send" style="width:60px" onclick="sendMessage()"/>
+</div>
+
+</h:body>
+
+
+
+</html>

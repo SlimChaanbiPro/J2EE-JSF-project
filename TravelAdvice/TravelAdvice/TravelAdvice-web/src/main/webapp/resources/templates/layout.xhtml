@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>travel advice</title>
+	
+
+</h:head>
+
+<body class="sticky-header">
+	<section> 
+	<div class="body-content">
+		<ui:include src="header.xhtml" />
+		<ui:insert name="content"></ui:insert>
+	</div>
+	</section>
+
+
+
+	<!--Nice Scroll-->
+	
+
+	<!--right slidebar-->
+	
+
+	<!--calendar-->
+	
+
+	<!--picker initialization-->
+	<script src="../resources/js/picker-init.js"></script>
+
+	<!--Icheck-->
+	<script src="../resources/js/icheck/skins/icheck.min.js"></script>
+	<!--icheck init-->
+	<script src="../resources/js/icheck-init.js"></script>
+
+	<!--tags input-->
+	<script src="../resources/js/tags-input.js"></script>
+
+	<!--tags input init-->
+	<script src="../resources/js/tags-input-init.js"></script>
+
+	<!--bootstrap-inputmask-->
+	<script src="../resources/js/bs-input-mask.min.js"></script>
+
+	<!--touchspin spinner-->
+	<script src="../resources/js/touchspin.js"></script>
+
+	<!--spinner init-->
+	<script src="../resources/js/spinner-init.js"></script>
+
+	<!--dropzone-->
+	<script src="../resources/js/dropzone.js"></script>
+
+	<!--select2-->
+	<script src="../resources/js/select2.js"></script>
+	<!--select2 init-->
+	<script src="../resources/js/select2-init.js"></script>
+
+
+	<!--common scripts for all pages-->
+	<script src="../resources/js/scripts.js"></script>
+
+	<script type="text/javascript">
+
+    /*
+    $(document).ready(function() {
+
+        //countTo
+
+        $('.timer').countTo();
+
+        //owl carousel
+
+        $("#news-feed").owlCarousel({
+            navigation : true,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem : true,
+            autoPlay:true
+        });
+    });
+
+    $(window).on("resize",function(){
+        var owl = $("#news-feed").data("owlCarousel");
+        owl.reinit();
+    });*/
+
+</script>
+
+	<ui:insert name="scripts"></ui:insert>
+</body>
+</html>

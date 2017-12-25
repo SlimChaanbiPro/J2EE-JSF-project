@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="/resources/templates/template.xhtml">
+<ui:define name="contenu">
+<h1> "#{logBean.login}"</h1>
+
+
+<h:form>
+<h:commandLink value="logout" action="#{logBean.doLogOut()}">
+</h:commandLink>
+<br/>
+<h:dataTable  value="#{userbean.u}"  var="u" border="1">
+<h:column>
+<f:facet name="header"> Identifiant</f:facet>
+#{u.id}
+</h:column>
+<h:column>
+<f:facet name="header"> Nom</f:facet>
+#{u.nom}
+</h:column>
+<h:column>
+<f:facet name="header"> Prenom</f:facet>
+#{u.prenom}
+</h:column>
+<h:column>
+<h:commandButton value="modifier" >
+<f:setPropertyActionListener value="#{u}" target="#{userbean.u}"></f:setPropertyActionListener>
+<f:setPropertyActionListener value="#{true}" target="#{userbean.test}"></f:setPropertyActionListener>
+</h:commandButton>
+</h:column>
+<h:column>
+<h:commandButton action="#{userbean.delete(u)}" value="supprimer" />
+</h:column>
+</h:dataTable>
+<h:commandButton action="#{userbean.initialiser()}" value="Ajout" />
+</h:form>
+<h:form rendered="#{userbean.test}">
+<h:panelGrid columns="2">
+<h:outputText value="Nom: " />
+<h:inputText value="#{userbean.u.nom}" />
+<h:outputText value="Prénom" />
+<h:inputText value="#{userbean.u.prenom}" />
+<h:outputText value="Naissance: " />
+
+<h:commandButton action="#{userbean.update()}" value="Valider" /> 
+</h:panelGrid>
+</h:form>
+</ui:define>
+</ui:composition>
+</html>

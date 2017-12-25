@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/resources/templates/layout.xhtml">
+	<ui:define name="content">
+		<style>
+.chat {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.chat li {
+	margin-bottom: 10px;
+	padding-bottom: 5px;
+	border-bottom: 1px dotted #B3A9A9;
+}
+
+.chat li.left .chat-body {
+	margin-left: 60px;
+}
+
+.chat li.right .chat-body {
+	margin-right: 60px;
+}
+
+.chat li .chat-body p {
+	margin: 0;
+	color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon {
+	margin-right: 5px;
+}
+
+.panel-body {
+	overflow-y: scroll;
+	height: 250px;
+}
+</style>
+		<div class="wrapper no-pad">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-11">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<span class="glyphicon glyphicon-comment"></span> Converstation
+							</div>
+							<div class="panel-body">
+								<ul class="chat">
+									<ui:repeat var="item" value="#{chatBean.conversation}">
+										<h:panelGroup
+											rendered="#{item.sender.id != chatBean.currentUserId}">
+											<li class="left clearfix"><span
+												class="chat-img pull-left"> <img style="width: 40px"
+													
+													class="img-circle" /></span>
+												<div class="chat-body clearfix">
+													<div class="header">
+														<strong class="primary-font">#{item.sender.login}</strong>
+														<small class="pull-right text-muted"> <span
+															class="glyphicon glyphicon-time"></span>#{item.date}
+														</small>
+													</div>
+													<p>#{item.text}</p>
+												</div></li>
+										</h:panelGroup>
+										<h:panelGroup
+											rendered="#{item.sender.id == chatBean.currentUserId}">
+											<li class="right clearfix"><span
+												class="chat-img pull-right"> <img style="width: 40px"
+													
+													class="img-circle" />
+											</span>
+												<div class="chat-body clearfix">
+													<div class="header">
+														<small class=" text-muted"><span
+															class="glyphicon glyphicon-time"></span>#{item.date}</small> <strong
+															class="pull-right primary-font">#{item.sender.login}</strong>
+													</div>
+													<p>#{item.text}</p>
+												</div></li>
+										</h:panelGroup>
+									</ui:repeat>
+								</ul>
+							</div>
+							<div class="panel-footer">
+								<h:form>
+									<div class="form-group">
+										<div class="input-group">
+											<h:inputText value="#{chatBean.message.text}"
+												styleClass="form-control" />
+											<span class="input-group-btn"> <h:commandButton
+													action="#{chatBean.SendMessage()}" value="Send"
+													styleClass="btn btn-warning btn-sm" />
+											</span>
+										</div>
+									</div>
+								</h:form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>
